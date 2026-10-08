@@ -1,0 +1,23 @@
+flowchart TD
+  U["用户"] --> M["MaxKB 对话应用"]
+  M --> I{"问题类型"}
+
+  I -->|"政策问题"| R["RAG 知识库检索"]
+  R --> K[("售后知识文档")]
+  K --> A["大模型组织答案"]
+
+  I -->|"订单 / 物流 / 退款"| C["大模型选择 MCP 工具"]
+  C --> T["售后 MCP 工具服务"]
+  T --> D[("模拟订单数据")]
+  D --> T
+  T --> A
+
+  A --> O["带依据的客服回复"]
+  O --> U
+
+  classDef platform fill:#E8F1FF,stroke:#2563EB,color:#172554
+  classDef service fill:#ECFDF5,stroke:#059669,color:#064E3B
+  classDef data fill:#FFF7ED,stroke:#EA580C,color:#7C2D12
+  class M,I,R,C,A platform
+  class T service
+  class K,D data
