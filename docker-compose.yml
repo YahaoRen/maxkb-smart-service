@@ -1,0 +1,25 @@
+services:
+  maxkb:
+    image: 1panel/maxkb:latest
+    container_name: maxkb-course
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    volumes:
+      - maxkb-data:/opt/maxkb
+    depends_on:
+      - smart-tools
+
+  smart-tools:
+    build: .
+    container_name: maxkb-smart-tools
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      ORDER_DATA_PATH: /app/data/orders.json
+      MCP_HOST: 0.0.0.0
+      MCP_PORT: 8000
+
+volumes:
+  maxkb-data:

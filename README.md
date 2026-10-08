@@ -48,10 +48,20 @@ maxkb-smart-service/
 ## 实现进度
 
 - [x] 明确项目边界与总体架构
-- [ ] 实现订单、物流、退款资格工具
+- [x] 实现订单、物流、退款资格工具
 - [ ] 准备售后知识库与系统提示词
 - [ ] 完成 Docker Compose 部署
 - [ ] 增加问答评测集和答辩材料
+
+## 本地运行核心测试
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -e .
+.\.venv\Scripts\python.exe -m unittest discover -s tests -v
+```
+
+模拟订单号和对应的演示场景见 [docs/demo-data.md](docs/demo-data.md)。
 
 ## 上游说明
 

@@ -1,0 +1,60 @@
+{
+  "orders": [
+    {
+      "order_no": "DD202610080001",
+      "customer_name": "张晓明",
+      "phone": "13800005678",
+      "product_name": "星云降噪耳机",
+      "paid_amount": 399.00,
+      "status": "已发货",
+      "created_at": "2026-10-07",
+      "shipped_at": "2026-10-08",
+      "received_at": null,
+      "carrier": "顺丰速运",
+      "tracking_no": "SFDEMO20261008001",
+      "logistics_detail": "2026-10-08 17:30 快件已从太原转运中心发出"
+    },
+    {
+      "order_no": "DD202610010002",
+      "customer_name": "李华",
+      "phone": "13900002468",
+      "product_name": "轻羽机械键盘",
+      "paid_amount": 259.00,
+      "status": "已签收",
+      "created_at": "2026-10-01",
+      "shipped_at": "2026-10-02",
+      "received_at": "2026-10-05",
+      "carrier": "京东物流",
+      "tracking_no": "JDDEMO20261001002",
+      "logistics_detail": "2026-10-05 12:16 订单已由本人签收"
+    },
+    {
+      "order_no": "DD202609100003",
+      "customer_name": "王敏",
+      "phone": "13700001357",
+      "product_name": "云帆智能手环",
+      "paid_amount": 189.00,
+      "status": "已签收",
+      "created_at": "2026-09-10",
+      "shipped_at": "2026-09-11",
+      "received_at": "2026-09-15",
+      "carrier": "中通快递",
+      "tracking_no": "ZTDEMO20260910003",
+      "logistics_detail": "2026-09-15 18:20 已签收"
+    },
+    {
+      "order_no": "DD202610080004",
+      "customer_name": "赵宇",
+      "phone": "13600008866",
+      "product_name": "极简桌面音箱",
+      "paid_amount": 329.00,
+      "status": "待发货",
+      "created_at": "2026-10-08",
+      "shipped_at": null,
+      "received_at": null,
+      "carrier": "",
+      "tracking_no": "",
+      "logistics_detail": ""
+    }
+  ]
+}
