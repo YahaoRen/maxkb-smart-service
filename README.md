@@ -50,8 +50,9 @@ maxkb-smart-service/
 - [x] 明确项目边界与总体架构
 - [x] 实现订单、物流、退款资格工具
 - [x] 准备售后知识库与系统提示词
+- [x] 增加业务规则评测与持续集成
 - [ ] 完成 Docker Compose 部署
-- [ ] 增加问答评测集和答辩材料
+- [ ] 完成 MaxKB 端到端评测与答辩材料
 
 ## 本地运行核心测试
 
@@ -64,6 +65,12 @@ python -m venv .venv
 模拟订单号和对应的演示场景见 [docs/demo-data.md](docs/demo-data.md)。
 
 完整的 MaxKB 页面配置流程见 [docs/maxkb-setup.md](docs/maxkb-setup.md)。
+
+运行离线业务规则评测：
+
+```powershell
+.\.venv\Scripts\python.exe scripts\evaluate_rules.py
+```
 
 ## 上游说明
 

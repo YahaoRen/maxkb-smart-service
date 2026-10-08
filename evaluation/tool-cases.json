@@ -1,0 +1,128 @@
+{
+  "as_of": "2026-10-08",
+  "cases": [
+    {
+      "name": "正确身份信息可以查询订单",
+      "tool": "query_order",
+      "arguments": {
+        "order_no": "DD202610080001",
+        "phone_tail": "5678"
+      },
+      "expected": {
+        "ok": true,
+        "code": "ORDER_FOUND",
+        "data.status": "已发货",
+        "data.phone": "138****5678"
+      }
+    },
+    {
+      "name": "错误手机号后四位不能泄露订单",
+      "tool": "query_order",
+      "arguments": {
+        "order_no": "DD202610080001",
+        "phone_tail": "0000"
+      },
+      "expected": {
+        "ok": false,
+        "code": "VERIFY_FAILED",
+        "data": {}
+      }
+    },
+    {
+      "name": "手机号后四位格式必须正确",
+      "tool": "query_order",
+      "arguments": {
+        "order_no": "DD202610080001",
+        "phone_tail": "678"
+      },
+      "expected": {
+        "ok": false,
+        "code": "INVALID_ARGUMENT"
+      }
+    },
+    {
+      "name": "已发货订单返回最新物流",
+      "tool": "query_logistics",
+      "arguments": {
+        "order_no": "DD202610080001",
+        "phone_tail": "5678"
+      },
+      "expected": {
+        "ok": true,
+        "code": "LOGISTICS_FOUND",
+        "data.carrier": "顺丰速运"
+      }
+    },
+    {
+      "name": "待发货订单不生成虚假单号",
+      "tool": "query_logistics",
+      "arguments": {
+        "order_no": "DD202610080004",
+        "phone_tail": "8866"
+      },
+      "expected": {
+        "ok": true,
+        "code": "NOT_SHIPPED",
+        "data.tracking_no": ""
+      }
+    },
+    {
+      "name": "签收七天内支持无理由退货",
+      "tool": "evaluate_refund",
+      "arguments": {
+        "order_no": "DD202610010002",
+        "phone_tail": "2468",
+        "reason": "买错了"
+      },
+      "expected": {
+        "ok": true,
+        "data.eligible": true,
+        "data.decision": "可申请七天无理由退货",
+        "data.days_since_received": 3
+      }
+    },
+    {
+      "name": "超七天非质量问题不支持无理由退货",
+      "tool": "evaluate_refund",
+      "arguments": {
+        "order_no": "DD202609100003",
+        "phone_tail": "1357",
+        "reason": "不喜欢了"
+      },
+      "expected": {
+        "ok": true,
+        "data.eligible": false,
+        "data.decision": "不符合七天无理由条件"
+      }
+    },
+    {
+      "name": "超七天质量问题转人工审核",
+      "tool": "evaluate_refund",
+      "arguments": {
+        "order_no": "DD202609100003",
+        "phone_tail": "1357",
+        "reason": "屏幕损坏"
+      },
+      "expected": {
+        "ok": true,
+        "data.eligible": false,
+        "data.decision": "需要人工审核"
+      }
+    },
+    {
+      "name": "未发货订单可全额退款",
+      "tool": "evaluate_refund",
+      "arguments": {
+        "order_no": "DD202610080004",
+        "phone_tail": "8866",
+        "reason": "不需要了"
+      },
+      "expected": {
+        "ok": true,
+        "data.eligible": true,
+        "data.estimated_refund": "329.00",
+        "data.shipping_responsibility": "无"
+      }
+    }
+  ]
+}

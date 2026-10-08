@@ -2,8 +2,11 @@
 
 import asyncio
 import os
+import sys
 
 from mcp.client import Client
+
+sys.stdout.reconfigure(encoding="utf-8")
 
 
 async def main() -> None:
