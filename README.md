@@ -49,7 +49,7 @@ maxkb-smart-service/
 
 - [x] 明确项目边界与总体架构
 - [x] 实现订单、物流、退款资格工具
-- [ ] 准备售后知识库与系统提示词
+- [x] 准备售后知识库与系统提示词
 - [ ] 完成 Docker Compose 部署
 - [ ] 增加问答评测集和答辩材料
 
@@ -62,6 +62,8 @@ python -m venv .venv
 ```
 
 模拟订单号和对应的演示场景见 [docs/demo-data.md](docs/demo-data.md)。
+
+完整的 MaxKB 页面配置流程见 [docs/maxkb-setup.md](docs/maxkb-setup.md)。
 
 ## 上游说明
 

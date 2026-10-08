@@ -1,0 +1,6 @@
+{
+  "smart-after-sales": {
+    "url": "http://smart-tools:8000/mcp",
+    "transport": "streamable_http"
+  }
+}
