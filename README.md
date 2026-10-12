@@ -41,6 +41,7 @@ maxkb-smart-service/
 ├─ diagrams/           # 架构图源文件
 ├─ docs/               # 架构、部署与答辩文档
 ├─ knowledge_base/     # 导入 MaxKB 的售后知识文档
+├─ start-demo.cmd      # Windows 一键启动课设演示
 ├─ src/smart_service/  # MCP 工具服务与业务逻辑
 └─ tests/              # 自动化测试
 ```
@@ -51,8 +52,14 @@ maxkb-smart-service/
 - [x] 实现订单、物流、退款资格工具
 - [x] 准备售后知识库与系统提示词
 - [x] 增加业务规则评测与持续集成
-- [ ] 完成 Docker Compose 部署
-- [ ] 完成 MaxKB 端到端评测与答辩材料
+- [x] 完成 Docker Compose 部署
+- [x] 完成 MaxKB 端到端评测与答辩材料
+
+## 一键启动演示
+
+Windows 上双击项目根目录的 `start-demo.cmd`。脚本会自动启动 Docker Desktop、`maxkb-course`、`maxkb-smart-tools`，等待服务就绪后打开“星云商城售后助手”。
+
+> 脚本会在 `D:\DockerDesktop\runtime` 为 Docker 创建独立的临时运行目录，用于避免 Windows 异常关机后遗留的套接字导致 Docker Desktop 无法启动。容器数据仍保存在原有 D 盘位置。
 
 ## 本地运行核心测试
 
