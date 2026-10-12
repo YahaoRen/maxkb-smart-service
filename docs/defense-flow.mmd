@@ -1,0 +1,18 @@
+flowchart LR
+  U["用户提问"] --> M["MaxKB 智能体<br/>理解问题并编排流程"]
+  M --> D{"问题类型"}
+
+  D -->|"通用售后政策"| K["售后知识库<br/>RAG 检索相关文档"]
+  D -->|"具体订单业务"| T["MCP 工具服务<br/>订单·物流·退款资格"]
+
+  P[("模拟订单数据")] --> T
+  K --> L["DeepSeek 大模型<br/>整理为自然语言"]
+  T --> L
+  L --> A["回答用户<br/>结论·依据·下一步"]
+
+  classDef main fill:#e8f1ff,stroke:#3370ff,color:#102a43,stroke-width:2px;
+  classDef decision fill:#fff3cd,stroke:#d39e00,color:#5f4300,stroke-width:2px;
+  classDef source fill:#e9f7ef,stroke:#2e8b57,color:#173b2a,stroke-width:2px;
+  class U,M,L,A main;
+  class D decision;
+  class K,T,P source;
